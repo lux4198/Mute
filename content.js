@@ -64,7 +64,7 @@ function check_volume_status(){
 
 // adds an observer when possible after loading the DOM 
  function addObserver(adobserver) {
-    var composeBox = document.getElementsByClassName('ytp-ad-player-overlay')[0];
+    var composeBox = document.getElementsByClassName('video-ads ytp-ad-module')[0];
     if(!composeBox) {
         //The node we need does not exist yet.
         //Wait 1000ms and try again
@@ -72,33 +72,35 @@ function check_volume_status(){
         return;
     }
     var config = { subtree: true, characterData: true, childList: true };
-    adobserver.observe(composeBox,config);
+    try{adobserver.observe(composeBox,config)}
+    catch(error){};
 }
 
+
+
+function main(){
+    
 // observer object that observes the ad player and mutes the ad 
  var adobserver = new MutationObserver(function(mutations){
     try{
-        // console.log('a')
-        
         console.log('ad running')
         if (status_mute == false){
             mute_video();
         };
         }
     catch(error){
-        // document.getElementsByClassName('ytp-mute-button ytp-button')[0].onclick = mute_video()
-        // change_volume_status()
         console.log()
     };
  })
 
 // observer object that executes code upon change of DOM title 
 var observer = new MutationObserver(function(mutations) {
-    //     // fired when a mutation occurs
+        // fired when a mutation occurs
+        console.log('Extension running')
+    
         check_volume_status()
         
-        try{setInterval(addObserver(adobserver), 1000)}
-        catch(error){};
+        setInterval(addObserver(adobserver), 500)
 
         setInterval(unmute_after_ad, 1000)
 
@@ -109,8 +111,8 @@ var observer = new MutationObserver(function(mutations) {
     { subtree: true, characterData: true, childList: true }
 );
 
+};
 
 let status_mute = false ;
 
-// observer starts after a few second from load (player sometimes loads later)
-window.onload = setTimeout(observer, 2000)
+window.onload = main()
