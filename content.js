@@ -64,16 +64,21 @@ function check_volume_status(){
 
 // adds an observer when possible after loading the DOM 
  function addObserver(adobserver) {
+    // checks if ad box is loaded to the dom (composeBox) and if there is a skippable button
     var composeBox = document.getElementsByClassName('video-ads ytp-ad-module')[0];
-    if(!composeBox) {
+    var button = document.getElementsByClassName('ytp-ad-skip-button ytp-button')
+
+    if (composeBox & button){
+        var config = { subtree: true, characterData: true, childList: true };
+        try{adobserver.observe(composeBox,config)}
+        catch(error){};
+    }
+    else{
         //The node we need does not exist yet.
         //Wait 1000ms and try again
-        window.setTimeout(addObserver,1000);
+        window.setTimeout(addObserver, 500);
         return;
     }
-    var config = { subtree: true, characterData: true, childList: true };
-    try{adobserver.observe(composeBox,config)}
-    catch(error){};
 }
 
 
