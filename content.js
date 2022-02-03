@@ -30,7 +30,7 @@ function skip_ad(){
 
 // checks if an ad is currently running and returns true if so 
 function check_ad(){
-    let change = document.getElementsByClassName('ytp-ad-player-overlay')[0]
+    let change = document.getElementsByClassName('ytp-ad-player-overlay-skip-or-preview')[0]
     // console.log(typeof(change))
     if (typeof(change) === 'undefined') {
         return false
@@ -65,10 +65,11 @@ function check_volume_status(){
 // adds an observer when possible after loading the DOM 
  function addObserver(adobserver) {
     // checks if ad box is loaded to the dom (composeBox) and if there is a skippable button
-    var composeBox = document.getElementsByClassName('video-ads ytp-ad-module')[0];
-    var button = document.getElementsByClassName('ytp-ad-skip-button ytp-button')
+    // var composeBox = document.getElementsByClassName('video-ads ytp-ad-module')[0];
+    // var button = document.getElementsByClassName('ytp-ad-skip-button ytp-button')
+    var composeBox = document.getElementsByClassName('ytp-ad-player-overlay-skip-or-preview')[0]
 
-    if (composeBox & button){
+    if (composeBox){
         var config = { subtree: true, characterData: true, childList: true };
         try{adobserver.observe(composeBox,config)}
         catch(error){};
