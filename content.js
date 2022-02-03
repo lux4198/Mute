@@ -6,7 +6,6 @@ function mute_video(){
     if (status_mute == false){
         a[0].click();
         status_mute = true;}
-    // console.log(status_mute);
 };
 
 // unmutes muted player 
@@ -14,7 +13,6 @@ function unmute_video(){
     let a = document.getElementsByClassName('ytp-mute-button ytp-button');
     if (status_mute){a[0].click()};
     status_mute = false;
-    // console.log(status_mute)
 };
 
 // skips an ad if possible 
@@ -114,6 +112,8 @@ var observer = new MutationObserver(function(mutations) {
     document.querySelector('title'),
     { subtree: true, characterData: true, childList: true }
 );
+
+observer
 
 };
 

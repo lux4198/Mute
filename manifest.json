@@ -1,7 +1,8 @@
 { 
-    "name" : "Mute and Skip Youtube Ads", 
-    "version" : "1.0",
-    "manifest_version" : 2,
+    "name" : "Youtube Ad Skipper", 
+    "version" : "0.0.0.1",
+    "manifest_version" : 3,
+    "description" : "A simple Browser-Extension that skips YouTube Ads if possible. If an Ad cannot be skipped, it will be muted.", 
     "content_scripts" : [
         {
             "matches" : ["https://www.youtube.com/*"], 

@@ -8,6 +8,8 @@ Since a lot of ads are very shrill and annoying I found this very helpful if you
 
 ## Run the Extension 
 
+This Extension is currently up for review and will soon be published in the chrome web store. If you want to run it in debug mode on you're browser before that, please follow the next steps. 
+
 If you want to run this extension in a chrome browser: 
 
 1. Clone the Repository and save the folder to your local machine. 
