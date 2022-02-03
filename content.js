@@ -19,11 +19,11 @@ function unmute_video(){
 
 // skips an ad if possible 
 function skip_ad(){
-    // let b = document.getElementsByClassName('ytp-ad-player-overlay')[0]
+    // gets button from ad player 
     let b = document.getElementsByClassName('ytp-ad-skip-button ytp-button');
     try {
         b[0].click();
-        console.log('Ad skipped');
+        console.log('YT-Ad-Skipper - ad skipped');
     }
     catch(error) {};
 }
@@ -64,9 +64,7 @@ function check_volume_status(){
 
 // adds an observer when possible after loading the DOM 
  function addObserver(adobserver) {
-    // checks if ad box is loaded to the dom (composeBox) and if there is a skippable button
-    // var composeBox = document.getElementsByClassName('video-ads ytp-ad-module')[0];
-    // var button = document.getElementsByClassName('ytp-ad-skip-button ytp-button')
+    // checks if ad box is loaded to the dom (composeBox)
     var composeBox = document.getElementsByClassName('ytp-ad-player-overlay-skip-or-preview')[0]
 
     if (composeBox){
@@ -89,7 +87,7 @@ function main(){
 // observer object that observes the ad player and mutes the ad 
  var adobserver = new MutationObserver(function(mutations){
     try{
-        console.log('ad running')
+        console.log('YT-Ad-Skipper - ad running')
         if (status_mute == false){
             mute_video();
         };
@@ -102,7 +100,7 @@ function main(){
 // observer object that executes code upon change of DOM title 
 var observer = new MutationObserver(function(mutations) {
         // fired when a mutation occurs
-        console.log('Extension running')
+        console.log('YT-Ad-Skipper - Extension running')
     
         check_volume_status()
         
