@@ -8,15 +8,9 @@ Since a lot of ads are very shrill and annoying I found this very helpful if you
 
 ## Run the Extension 
 
-This Extension is currently up for review and will soon be published in the chrome web store. If you want to run it in debug mode on you're browser before that, please follow the next steps. 
+This Extension is now published to the Chrome Webstore. The following Link will get you to the download page. 
 
-If you want to run this extension in a chrome browser: 
-
-1. Clone the Repository and save the folder to your local machine. 
-2. Open Chrome and go to chrome://extensions/. 
-3. Activate Developer Mode (top right corner)   
-4. Go to Load Unpacked and load the folder containing the extension. 
-5. Activate extension and you're good to go. 
+https://chrome.google.com/webstore/detail/youtube-ad-skipper/ofcjimgfbnppgpdhjdcgfghaedjeajib/related?hl=de&authuser=0
 
 The Extension will only run on youtube.com* urls. Have fun :) 
 
